@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "North Indian Chart",
+    "slug": "north-indian-chart-example",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "platforms": ["ios", "android", "web"],
+    "web": {
+      "bundler": "metro"
+    },
+    "splash": {
+      "backgroundColor": "#ffffff"
+    }
+  }
+}

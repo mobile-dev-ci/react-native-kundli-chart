@@ -1,0 +1,40 @@
+name: Bug report
+description: Report a problem with the chart
+labels: [bug]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction
+      description: Minimal props to reproduce — ascendantRashi, planets array, and any other props.
+      render: tsx
+      placeholder: |
+        <NorthIndianChart ascendantRashi={5} planets={[{ id: 'sun', rashi: 5 }]} />
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      multiple: true
+      options:
+        - iOS
+        - Android
+        - Web
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: library, react-native, react-native-svg, and OS versions
+      placeholder: 'chart 1.0.0, RN 0.74, react-native-svg 15.2, iOS 17'
+    validations:
+      required: true

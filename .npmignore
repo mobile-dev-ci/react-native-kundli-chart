@@ -1,0 +1,7 @@
+example/
+docs/**/*.png
+tsconfig*.json
+*.test.ts
+*.test.tsx
+.github/
+coverage/
