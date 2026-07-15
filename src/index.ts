@@ -22,7 +22,7 @@ export { BottomSheet } from './components/BottomSheet';
 export type { BottomSheetProps } from './components/BottomSheet';
 
 // Hook + render model
-export { useChartLayout } from './hooks/useChartLayout';
+export { buildChartLayout, useChartLayout } from './hooks/useChartLayout';
 export type {
   ChartLayout,
   RenderedHouse,

@@ -115,8 +115,12 @@ function layoutHousePlanets(
   return out;
 }
 
-/** Build the memoised render model for the whole chart. */
-export function useChartLayout(args: UseChartLayoutArgs): ChartLayout {
+/**
+ * Build the chart's render model. Pure and React-free, so it also powers
+ * tooling (e.g. static image generation) and custom renderers. Most apps use
+ * the {@link useChartLayout} hook instead, which memoises this.
+ */
+export function buildChartLayout(args: UseChartLayoutArgs): ChartLayout {
   const {
     ascendantRashi,
     planets,
@@ -126,32 +130,43 @@ export function useChartLayout(args: UseChartLayoutArgs): ChartLayout {
     renderRashiLabel,
   } = args;
 
-  return useMemo<ChartLayout>(() => {
-    const grouped = groupPlanetsByHouse(planets, ascendantRashi);
+  const grouped = groupPlanetsByHouse(planets, ascendantRashi);
 
-    const houses = ALL_HOUSES.map((house): RenderedHouse => {
-      const layout = HOUSE_LAYOUT[house];
-      const sign = signInHouse(ascendantRashi, house);
-      const signLabel = renderRashiLabel ? renderRashiLabel(sign, house) : String(sign);
-      const placements = grouped[house];
-      return {
-        house,
-        sign,
-        signLabel,
-        rashi: { x: layout.rashi.x, y: layout.rashi.y, anchor: layout.rashiAnchor },
-        houseNumber: { x: layout.houseNum.x, y: layout.houseNum.y, anchor: layout.numAnchor },
-        polygon: HOUSE_POLYGONS[house],
-        placements,
-        planets: layoutHousePlanets(
-          house,
-          placements,
-          theme,
-          planetAbbreviations,
-          retrogradeMarker,
-        ),
-      };
-    });
+  const houses = ALL_HOUSES.map((house): RenderedHouse => {
+    const layout = HOUSE_LAYOUT[house];
+    const sign = signInHouse(ascendantRashi, house);
+    const signLabel = renderRashiLabel ? renderRashiLabel(sign, house) : String(sign);
+    const placements = grouped[house];
+    return {
+      house,
+      sign,
+      signLabel,
+      rashi: { x: layout.rashi.x, y: layout.rashi.y, anchor: layout.rashiAnchor },
+      houseNumber: { x: layout.houseNum.x, y: layout.houseNum.y, anchor: layout.numAnchor },
+      polygon: HOUSE_POLYGONS[house],
+      placements,
+      planets: layoutHousePlanets(house, placements, theme, planetAbbreviations, retrogradeMarker),
+    };
+  });
 
-    return { houses };
-  }, [ascendantRashi, planets, theme, planetAbbreviations, retrogradeMarker, renderRashiLabel]);
+  return { houses };
+}
+
+/** Build the memoised render model for the whole chart. */
+export function useChartLayout(args: UseChartLayoutArgs): ChartLayout {
+  const { ascendantRashi, planets, theme, planetAbbreviations, retrogradeMarker, renderRashiLabel } =
+    args;
+
+  return useMemo<ChartLayout>(
+    () =>
+      buildChartLayout({
+        ascendantRashi,
+        planets,
+        theme,
+        planetAbbreviations,
+        retrogradeMarker,
+        renderRashiLabel,
+      }),
+    [ascendantRashi, planets, theme, planetAbbreviations, retrogradeMarker, renderRashiLabel],
+  );
 }

@@ -40,8 +40,16 @@ src/
   theme/        ChartTheme contract + light/dark defaults
   utils/        pure placement + hit-testing logic
 test/           Jest unit tests for the pure logic
+scripts/        generate-screenshots.js (renders assets/ from the layout)
+assets/         generated reference images (README/docs)
 docs/           ARCHITECTURE, GEOMETRY, USAGE
 example/        Expo app
+```
+
+Regenerate the reference images after a visual change:
+
+```sh
+npm run build && npm run screenshots
 ```
 
 See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) before making structural changes.

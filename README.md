@@ -13,6 +13,18 @@ A fully-typed, dependency-light **North Indian (diamond) Vedic astrology chart**
 
 Everything is themeable and localisable. No hard-coded strings, colours, or sizes. No runtime dependency beyond `react`, `react-native`, and `react-native-svg`.
 
+## Preview
+
+<p align="center">
+  <img src="assets/chart-light.png" alt="North Indian chart, light theme" width="360" />
+  &nbsp;&nbsp;
+  <img src="assets/chart-dark.png" alt="North Indian chart, dark theme" width="360" />
+</p>
+
+<p align="center"><em>A Leo-ascendant chart with sign glyphs, dignity colours (green = exalted, red = debilitated, blue = own sign, amber = combust) and retrograde markers — light &amp; dark themes.</em></p>
+
+> Images are generated from the library's own layout with `npm run build && npm run screenshots` (see [`scripts/generate-screenshots.js`](scripts/generate-screenshots.js)). The legend sheet and fullscreen modal are best seen live — run the [example app](example/).
+
 ---
 
 ## Install
