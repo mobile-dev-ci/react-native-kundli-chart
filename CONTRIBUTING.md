@@ -1,12 +1,12 @@
 # Contributing
 
-Thanks for your interest in improving `react-native-north-indian-chart`.
+Thanks for your interest in improving `react-native-kundli-chart`.
 
 ## Getting started
 
 ```sh
-git clone https://github.com/mobile-dev-ci/react-native-north-indian-chart.git
-cd react-native-north-indian-chart
+git clone https://github.com/mobile-dev-ci/react-native-kundli-chart.git
+cd react-native-kundli-chart
 npm install
 ```
 

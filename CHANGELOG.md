@@ -26,5 +26,5 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Documentation (`README`, `docs/ARCHITECTURE`, `docs/GEOMETRY`, `docs/USAGE`),
   an Expo example app, and a Jest test suite.
 
-[Unreleased]: https://github.com/mobile-dev-ci/react-native-north-indian-chart/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/mobile-dev-ci/react-native-north-indian-chart/releases/tag/v1.0.0
+[Unreleased]: https://github.com/mobile-dev-ci/react-native-kundli-chart/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/mobile-dev-ci/react-native-kundli-chart/releases/tag/v1.0.0

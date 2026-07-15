@@ -1,5 +1,5 @@
 /**
- * Interactive showcase for react-native-north-indian-chart.
+ * Interactive showcase for react-native-kundli-chart.
  *
  * Runs on iOS, Android and web (Expo). It consumes the library straight from
  * `../src`, so editing the library hot-reloads here.

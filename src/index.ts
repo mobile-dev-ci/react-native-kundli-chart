@@ -1,5 +1,5 @@
 /**
- * react-native-north-indian-chart
+ * react-native-kundli-chart
  *
  * Public API. Import components, hooks, pure helpers, theming, constants and
  * types from here.

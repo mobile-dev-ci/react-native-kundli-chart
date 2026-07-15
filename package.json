@@ -1,5 +1,5 @@
 {
-  "name": "react-native-north-indian-chart",
+  "name": "react-native-kundli-chart",
   "version": "1.0.0",
   "description": "A fully-typed, dependency-light North Indian (diamond) Vedic astrology / Lagna Kundli chart for React Native, rendered with react-native-svg. Ships the chart, a legend bottom sheet, and a fullscreen modal.",
   "keywords": [
@@ -7,23 +7,34 @@
     "svg",
     "astrology",
     "kundli",
+    "kundali",
+    "janam-kundali",
+    "birth-chart",
+    "natal-chart",
     "lagna",
+    "lagna-chart",
+    "rashi",
+    "rashi-chart",
+    "d1-chart",
     "vedic",
+    "vedic-astrology",
     "north-indian-chart",
+    "north-indian",
     "horoscope",
     "panchang",
-    "jyotish"
+    "jyotish",
+    "expo"
   ],
   "license": "MIT",
   "author": "Nikhil Vashistha <vh9s@ymail.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mobile-dev-ci/react-native-north-indian-chart.git"
+    "url": "git+https://github.com/mobile-dev-ci/react-native-kundli-chart.git"
   },
   "bugs": {
-    "url": "https://github.com/mobile-dev-ci/react-native-north-indian-chart/issues"
+    "url": "https://github.com/mobile-dev-ci/react-native-kundli-chart/issues"
   },
-  "homepage": "https://github.com/mobile-dev-ci/react-native-north-indian-chart#readme",
+  "homepage": "https://github.com/mobile-dev-ci/react-native-kundli-chart#readme",
   "source": "src/index.ts",
   "main": "dist/index.js",
   "module": "dist/index.js",

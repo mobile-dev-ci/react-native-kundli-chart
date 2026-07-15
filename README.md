@@ -1,7 +1,7 @@
-# react-native-north-indian-chart
+# react-native-kundli-chart
 
-[![npm version](https://img.shields.io/npm/v/react-native-north-indian-chart.svg)](https://www.npmjs.com/package/react-native-north-indian-chart)
-[![CI](https://github.com/mobile-dev-ci/react-native-north-indian-chart/actions/workflows/ci.yml/badge.svg)](https://github.com/mobile-dev-ci/react-native-north-indian-chart/actions/workflows/ci.yml)
+[![npm version](https://img.shields.io/npm/v/react-native-kundli-chart.svg)](https://www.npmjs.com/package/react-native-kundli-chart)
+[![CI](https://github.com/mobile-dev-ci/react-native-kundli-chart/actions/workflows/ci.yml/badge.svg)](https://github.com/mobile-dev-ci/react-native-kundli-chart/actions/workflows/ci.yml)
 [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![types: TypeScript](https://img.shields.io/badge/types-TypeScript-3178c6.svg)](https://www.typescriptlang.org/)
 
@@ -30,9 +30,9 @@ Everything is themeable and localisable. No hard-coded strings, colours, or size
 ## Install
 
 ```sh
-npm install react-native-north-indian-chart react-native-svg
+npm install react-native-kundli-chart react-native-svg
 # or
-yarn add react-native-north-indian-chart react-native-svg
+yarn add react-native-kundli-chart react-native-svg
 ```
 
 `react-native-svg` is a peer dependency — install and link it per its own instructions (autolinking on RN ≥ 0.60).
@@ -40,7 +40,7 @@ yarn add react-native-north-indian-chart react-native-svg
 ## Quick start
 
 ```tsx
-import { NorthIndianChart, type PlanetPlacement } from 'react-native-north-indian-chart';
+import { NorthIndianChart, type PlanetPlacement } from 'react-native-kundli-chart';
 
 const planets: PlanetPlacement[] = [
   { id: 'sun', rashi: 5, dignity: 'ownSign' },
@@ -110,7 +110,7 @@ const [full, setFull] = useState(false);
 ## Theming
 
 ```tsx
-import { darkChartTheme, mergeTheme } from 'react-native-north-indian-chart';
+import { darkChartTheme, mergeTheme } from 'react-native-kundli-chart';
 
 // Full theme:
 <NorthIndianChart {...chart} theme={darkChartTheme} />

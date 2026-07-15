@@ -1,14 +1,14 @@
 # Usage & recipes
 
 Assumes `react-native-svg` is installed and linked. Import from
-`react-native-north-indian-chart`.
+`react-native-kundli-chart`.
 
 ---
 
 ## 1. Minimal chart
 
 ```tsx
-import { NorthIndianChart, type PlanetPlacement } from 'react-native-north-indian-chart';
+import { NorthIndianChart, type PlanetPlacement } from 'react-native-kundli-chart';
 
 const planets: PlanetPlacement[] = [
   { id: 'sun', rashi: 5 },
@@ -24,7 +24,7 @@ const planets: PlanetPlacement[] = [
 `renderRashiLabel` controls the per-house sign label.
 
 ```tsx
-import { NorthIndianChart, RASHI_GLYPHS, RASHI_NAMES } from 'react-native-north-indian-chart';
+import { NorthIndianChart, RASHI_GLYPHS, RASHI_NAMES } from 'react-native-kundli-chart';
 
 // Zodiac glyphs (♈ ♉ …)
 <NorthIndianChart {...chart} renderRashiLabel={(sign) => RASHI_GLYPHS[sign]} />
@@ -137,7 +137,7 @@ button, and lets the user pinch-to-zoom.
 ## 8. Dark mode
 
 ```tsx
-import { darkChartTheme, lightChartTheme } from 'react-native-north-indian-chart';
+import { darkChartTheme, lightChartTheme } from 'react-native-kundli-chart';
 const theme = useColorScheme() === 'dark' ? darkChartTheme : lightChartTheme;
 <NorthIndianChart {...chart} theme={theme} />;
 ```
@@ -153,7 +153,7 @@ import {
   PLANET_ABBREVIATIONS,
   RASHI_NAMES,
   RASHI_LORDS,
-} from 'react-native-north-indian-chart';
+} from 'react-native-kundli-chart';
 ```
 
 ## 10. Custom bodies
@@ -173,7 +173,7 @@ const planets = [
 Need positions for a canvas/native renderer or tests? Use the pure hook/helpers:
 
 ```tsx
-import { useChartLayout, signInHouse, houseOfPlanet } from 'react-native-north-indian-chart';
+import { useChartLayout, signInHouse, houseOfPlanet } from 'react-native-kundli-chart';
 
 houseOfPlanet(5, 5); // 1
 signInHouse(5, 10); // 2  (Taurus is the 10th sign from Leo)
