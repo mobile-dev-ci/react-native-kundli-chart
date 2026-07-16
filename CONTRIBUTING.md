@@ -77,3 +77,32 @@ See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) before making structural chan
 
 Open an issue with a minimal reproduction: ascendant, planet placements, the
 props you passed, expected vs actual, and platform (iOS/Android/web) + versions.
+
+## Releasing (maintainers)
+
+Publishing is automated by [`.github/workflows/release.yml`](.github/workflows/release.yml),
+which triggers on a `v*` tag and publishes to npm via **Trusted Publishing
+(OIDC)** with build provenance — no npm token is stored in GitHub.
+
+One-time setup on npmjs.com (after the package's first publish exists): open the
+package's **Settings → Trusted Publisher** and add this repo with workflow
+`release.yml`.
+
+To cut a release:
+
+```sh
+# 1. Bump the version + update CHANGELOG.md (move Unreleased -> the new version)
+npm version patch   # or: minor | major  (creates the vX.Y.Z commit + tag)
+
+# 2. Push the commit and the tag
+git push origin main
+git push origin "v$(node -p "require('./package.json').version")"
+```
+
+The workflow then verifies the tag matches `package.json`, runs the
+`prepublishOnly` gate (typecheck · lint · test · build), publishes to npm, and
+creates a GitHub Release with generated notes.
+
+> First-ever publish: do it once manually (`npm login && npm publish`) to create
+> the package, then configure the Trusted Publisher above so all subsequent
+> releases go through CI.
