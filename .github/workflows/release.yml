@@ -43,11 +43,29 @@ jobs:
             exit 1
           fi
 
+      - name: Check if version is already on npm
+        id: published
+        run: |
+          NAME="$(node -p "require('./package.json').name")"
+          VER="$(node -p "require('./package.json').version")"
+          if npm view "$NAME@$VER" version >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+            echo "$NAME@$VER already published — skipping publish"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
       # prepublishOnly (typecheck, lint, test, build) runs as the publish gate.
       - name: Publish to npm
+        if: steps.published.outputs.exists == 'false'
         run: npm publish --provenance --access public
 
       - name: Create GitHub Release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "$GITHUB_REF_NAME" --generate-notes --verify-tag
+        run: |
+          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            echo "Release $GITHUB_REF_NAME already exists — skipping"
+          else
+            gh release create "$GITHUB_REF_NAME" --generate-notes --verify-tag
+          fi
